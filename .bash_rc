@@ -30,7 +30,7 @@ function mcd() {
 }
 
 # Tail of file contents
-tf='tail -f '
+alias tf='tail -f '
 
 # List files in human readable format with color and without implied directories
 alias l='ls -lAh'
