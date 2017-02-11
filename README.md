@@ -5,8 +5,8 @@
 2. cd SwiftBash
 3. cp ~/.bash_rc ~/.bash_rc.bak
 4. cp .bash_rc ~/.bash_rc
-> source ~/.bash_rc
-# Then all the following shortcuts takes effect.
+5. source ~/.bash_rc
+6. OK. All Done. All the following shortcuts takes effect.
 
 # ---------- section 1 :: file system ----------
 
