@@ -30,14 +30,14 @@ function mcd() {
 }
 
 # List files in human readable format with color and without implied directories
-alias l='ls -lAh --color'
+alias l='ls -lAh'
 
 # List all folders.
 alias lf='ls -Gl | grep ^d'   #Only list directories
 alias lsd='ls -Gal | grep ^d' #Only list directories, including hidden ones
 
 # hidden files , directory listing
-alias l.='ls -d .* --color=auto'
+alias l.='ls -d .*'
 
 # Recursive directory listing. tree , directory listing , sed , grep
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
