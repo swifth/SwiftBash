@@ -16,6 +16,9 @@
 # Make and cd into directory
 > mcd [directory name]
 
+# Tail of file contents
+> tf [filename]
+
 # List files in human readable format with color and without implied directories
 > l
 

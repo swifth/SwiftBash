@@ -29,6 +29,9 @@ function mcd() {
   mkdir -p "$1" && cd "$1";
 }
 
+# Tail of file contents
+tf='tail -f '
+
 # List files in human readable format with color and without implied directories
 alias l='ls -lAh'
 
