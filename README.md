@@ -1,11 +1,11 @@
 # SwiftBash
 
 # Usage
-git clone https://github.com/swifth/SwiftBash.git
-cd SwiftBash
-cp ~/.bash_rc ~/.bash_rc.bak
-cp .bash_rc ~/.bash_rc
-source ~/.bash_rc
+> git clone https://github.com/swifth/SwiftBash.git
+> cd SwiftBash
+> cp ~/.bash_rc ~/.bash_rc.bak
+> cp .bash_rc ~/.bash_rc
+> source ~/.bash_rc
 # Then all the following shortcuts takes effect.
 
 # ---------- section 1 :: file system ----------
@@ -20,8 +20,8 @@ mcd [directory name]
 l
 
 # List all folders.
-lf
-lsd
+> lf
+> lsd
 
 # hidden files , directory listing
 l.
@@ -30,11 +30,11 @@ l.
 lr
 
 # Jump back n directories at a time. directory traversal
-..
-...
-....
-.....
-......
+> ..
+> ...
+> ....
+> .....
+> ......
 
 # go back x directories
 b [n]
