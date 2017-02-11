@@ -1,0 +1,98 @@
+#!bin/sh
+
+# ---------- section 1 :: file system ----------
+
+# Extract most know archives with one command.  extract, archive, tar
+extract () {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# Make and cd into directory
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+# List files in human readable format with color and without implied directories
+alias l='ls -lAh --color'
+
+# List all folders.
+alias lf='ls -Gl | grep ^d'   #Only list directories
+alias lsd='ls -Gal | grep ^d' #Only list directories, including hidden ones
+
+# hidden files , directory listing
+alias l.='ls -d .* --color=auto'
+
+# Recursive directory listing. tree , directory listing , sed , grep
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+
+# Jump back n directories at a time. directory traversal
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+# go back x directories
+b() {
+	str=""
+	count=0
+	while [ "$count" -lt "$1" ];
+	do
+		str=$str"../"
+		let count=count+1
+	done
+	cd $str
+}
+
+
+# ---------- section 2 :: git command ----------
+
+# Compact, colorized git log, formatting , log
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Visualise git log (like gitk, in the terminal)
+alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+
+
+# ---------- section 3 :: process command ----------
+
+# Search for process. grep , ps , process
+alias tm='ps -ef | grep'
+
+# Show which commands you use the most. history , commands
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
+# Clear the terminal of it's output.  clear , terminal
+alias c='clear'
+
+
+# ---------- section 4 :: text command ----------
+
+# Find text in any file.  find , grep , search
+ft() {
+	find . -name "$2" -exec grep -il "$1" {} \;
+}
+
+
+# ---------- section 5 :: system & software command ----------
+
+# Debian quick update
+# debian , update , apt , upgrade
+alias upgrade='apt-get update && apt-get upgrade && apt-get clean'
